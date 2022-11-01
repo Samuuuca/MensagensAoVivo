@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;600&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    background: #000000 url(img/logopsd.png) no-repeat fixed center;
+    background-size: 100px 100px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div{
+
+    background-color: rgba(255, 55, 55, 0.575);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Archivo', sans-serif;
+    padding: 30px;
+    margin: 30px;
+
+}
+div button{
+    
+    border: none;
+    margin-top: 15px;
+    font-size: 20px;
+    padding: 5px 10px 5px 10px ;
+    border-radius: 10px;
+}
+
+.send{
+    
+    background-color: white;
+    color: green;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Archivo', sans-serif;
+    padding: 30px;
+    margin: 30px;
+    width: 50%;
+    display: none;
+    position: absolute;
+}
+
+@keyframes down {
+    0%{
+        transform: translateY(-100%);
+    }
+    50%{
+        transform: translateY(0)
+    }
+    100%{
+        transform: translateY(-100%)
+    }    
+}

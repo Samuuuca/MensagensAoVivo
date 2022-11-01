@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,89 +8,23 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Mensagens Live</title>
 </head>
 <body>
-    
-    <h1>Mande sua mensagem</h1>
+    <div class="send">
+        <h2>Mensagem enviada</h2>
+    </div>
+    <div>
+        <h1>Mande sua mensagem</h1>
 
-    <p>Nome:</p>
-    <input id="nome" type="text">
-    <p>mensagem</p>
+        <p>Nome:</p>
+        <input id="nome" type="text">
+        <p>Mensagem</p>
 
-    <input id="recado"type="text">
-    <button type="submit" onclick="AtualizarMensagens()">Enviar</button>
+        <input id="recado"type="text">
+    </div>
 
-<script>
-    const firebaseConfig = {
-        apiKey: "AIzaSyAAqeqKW2daXvAGs3qIB6rTFd_I22pNve0",
-        authDomain: "mandarmsg-eb7a5.firebaseapp.com",
-        projectId: "mandarmsg-eb7a5",
-        storageBucket: "mandarmsg-eb7a5.appspot.com",
-        messagingSenderId: "326553069341",
-        appId: "1:326553069341:web:7ce78aff257129717a23f4",
-        measurementId: "G-Z9FEVC6Q83"
-    };
-
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const bd = firebase.firestore()
-
-
-
-    mensagens = new Object()
-    let totalMensagens = [0]
-    const id = "5Y0zOwSIh0F8J9IY31vJ"
-    
-    bd.collection('Mensagens').doc(id).onSnapshot(function (doc){
-            
-            if(doc.exists){
-                
-                const dados = doc.data()
-                
-                totalMensagens[0] = dados.TotaldeMensagens
-                console.log(totalMensagens[0])
-
-            }
-            else{
-                console.log('não existe')
-            }
-    })
-
-function AtualizarMensagens(){
-	
-	alert('Mensagem Enviada')
-
-    const inputNome = document.getElementById("nome").value
-    const inputRecado = document.getElementById("recado").value
-    
-
-    totalMensagens[0]++
-
-    let objectIndex = `recado${totalMensagens}` 
-    
-    mensagens[objectIndex] = `${inputNome}-${inputRecado}`;
-    console.log(mensagens)
-
-    bd.collection('Mensagens').doc(id).update(mensagens).then(() => {
-        console.log(' adicionado')
-    }).catch((error) => {
-    console.error(error)
-    })
-    
-    bd.collection('Mensagens').doc(id).update({
-        TotaldeMensagens: totalMensagens[0]
-    }).then(() => {
-        console.log(' adicionado')
-    }).catch((error) => {
-    console.error(error)
-    })
-
-}
-
-    
-
-
-</script>
+<script src="script.js"></script>
 </body>
 </html>
