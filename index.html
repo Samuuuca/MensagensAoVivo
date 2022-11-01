@@ -76,7 +76,7 @@ function AtualizarMensagens(){
     console.error(error)
     })
     
-    bd.collection('Mensagens').doc(id).set({
+    bd.collection('Mensagens').doc(id).update({
         TotaldeMensagens: totalMensagens[0]
     }).then(() => {
         console.log(' adicionado')
